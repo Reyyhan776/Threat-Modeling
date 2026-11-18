@@ -61,7 +61,8 @@
                 "fd9e1d48-4414-4cfe-bed3-8e1d411f24a6",
                 "85254269-6437-4ed6-8e59-3d5a0d8f5ab2",
                 "77391790-8995-4bfe-bcd0-e367e53a2819",
-                "3041bd66-7b27-4ba0-b5b9-bb7cd3c4811d"
+                "3041bd66-7b27-4ba0-b5b9-bb7cd3c4811d",
+                "10e791d5-5ad4-4417-8816-b46e9f157a48"
               ],
               "containedElements": [
                 "c2561b5d-3577-4759-8888-0fde83294b8a",
@@ -69,6 +70,13 @@
                 "38a2f7ec-1a6c-4f9c-9e0c-355e794d8626",
                 "c4422e7b-4b29-45f8-bd89-6a1bc14095a3"
               ]
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -307,7 +315,7 @@
           },
           {
             "position": {
-              "x": 1150,
+              "x": 1170,
               "y": 185
             },
             "size": {
@@ -1427,7 +1435,7 @@
             },
             "vertices": [
               {
-                "x": 1080,
+                "x": 1100,
                 "y": 260
               }
             ]
@@ -1452,7 +1460,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "Permintaan_dashboard",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1463,20 +1471,28 @@
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
-              "trustBoundaryIds": []
+              "trustBoundaryIds": [
+                "1981b4e2-a9a3-420c-8953-ec90ec9fdc3a"
+              ]
             },
             "labels": [
-              "Data Flow"
+              "Permintaan_dashboard"
             ],
-            "id": "f3a2a16a-e3f9-4687-9efa-a6aa3dd25b10",
+            "id": "10e791d5-5ad4-4417-8816-b46e9f157a48",
             "source": {
-              "x": 1090,
-              "y": 120
+              "x": 1160,
+              "y": 210
             },
             "target": {
-              "cell": "16ddfed9-5caa-4666-8ccf-63a73eb7cd6f",
-              "port": "c2d13240-a3fa-45ec-a2f4-7145b0ee1b05"
-            }
+              "cell": "c4422e7b-4b29-45f8-bd89-6a1bc14095a3",
+              "port": "7d24af8e-2444-4d9f-a8be-86f38cc93a7f"
+            },
+            "vertices": [
+              {
+                "x": 1100,
+                "y": 170
+              }
+            ]
           }
         ],
         "description": "Model ancaman menggunakan STRIDE untuk sistem e-ticket dan validasi tiket acara"
