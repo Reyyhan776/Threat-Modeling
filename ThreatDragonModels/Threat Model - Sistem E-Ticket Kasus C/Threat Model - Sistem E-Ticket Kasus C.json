@@ -173,20 +173,13 @@
             "data": {
               "type": "tm.Actor",
               "name": "Peserta\n(Portal Web)",
-              "description": "",
+              "description": "Aktor pemegang tiket",
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -304,6 +297,13 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -414,7 +414,7 @@
             "data": {
               "type": "tm.Actor",
               "name": "Admin Acara\n(Dashboard Web)",
-              "description": "Aktor yang memantau rekap via dashboard",
+              "description": "Aktor memantau rekap via dashboard",
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
