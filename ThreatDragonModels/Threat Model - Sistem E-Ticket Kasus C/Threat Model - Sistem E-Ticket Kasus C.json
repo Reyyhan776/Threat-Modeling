@@ -203,8 +203,8 @@
                 "text": "Petugas Pintu\n(APK Pemindai)"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -301,9 +301,27 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "c157eb55-f887-4b67-941c-74b9fc08a220",
+                  "title": "Pemalsuan Identitas Petugas atau QR Code",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Penyerang memalsukan token sesi petugas untuk mengakses APK Pemindai, atau peserta menggandakan maupun memalsukan QR code tiket agar bisa masuk acara secara ilegal.",
+                  "mitigation": "Mewajibkan autentikasi berbasis JWT atau session dengan batas waktu kedaluwarsa untuk petugas, dan juga menambahkan tanda tangan digital HMAC/JWT pada QR code tiket.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": "8"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
             }
           },
           {
@@ -559,19 +577,32 @@
                   "new": false,
                   "number": 2,
                   "score": ""
+                },
+                {
+                  "id": "98b834f3-a07b-4e20-9ec4-3bfe23716d1a",
+                  "title": "Kebocoran Data Pribadi Peserta dan Kode Tiket",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Pihak tidak berwenang mengakses Database Tiket atau menyadap jalur komunikasi untuk mencuri data pribadi peserta dan daftar QR tiket yang masih aktif.",
+                  "mitigation": "Menerapkan enkripsi komunikasi menggunakan HTTPS/TLS di seluruh jaringan serta enkripsi data sensitif pada Database Tiket.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": "8"
                 }
               ],
               "threatFrequency": {
                 "tampering": 0,
                 "repudiation": 2,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             }
           },
           {
             "position": {
-              "x": 350,
+              "x": 355,
               "y": 95
             },
             "size": {
@@ -699,6 +730,19 @@
                   "new": false,
                   "number": 9,
                   "score": ""
+                },
+                {
+                  "id": "33bd4a75-56ec-4c23-8580-c891749a29cc",
+                  "title": "Kegagalan Validasi atau Registrasi Akibat Lonjakan Trafik (DoS)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Lonjakan permintaan pemindaian bersamaan dari banyak pintu masuk atau serangan flood pada portal registrasi membuat server backend tidak merespons.",
+                  "mitigation": "Menerapkan rate limiting pada API backend, load balancing server, dan mekanisme antrean sinkronisasi yang aman jika jaringan terganggu sementara.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": "7"
                 }
               ],
               "threatFrequency": {
@@ -706,23 +750,23 @@
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 0,
+                "denialOfService": 1,
                 "elevationOfPrivilege": 0
               }
             }
           },
           {
             "position": {
-              "x": 328,
-              "y": 245
+              "x": 345,
+              "y": 255
             },
             "size": {
-              "width": 150,
-              "height": 120
+              "width": 130,
+              "height": 100
             },
             "attrs": {
               "text": {
-                "text": "Login & Scan QR\nSerta Validasi\nTiket"
+                "text": "Scan & Validasi\nTiket"
               },
               "body": {
                 "stroke": "red",
@@ -818,7 +862,7 @@
             "id": "38a2f7ec-1a6c-4f9c-9e0c-355e794d8626",
             "data": {
               "type": "tm.Process",
-              "name": "Login & Scan QR\nSerta Validasi\nTiket",
+              "name": "Scan & Validasi\nTiket",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -841,12 +885,38 @@
                   "new": false,
                   "number": 1,
                   "score": ""
+                },
+                {
+                  "id": "0efb635d-09a3-4ba9-ac0c-b3bc94b1bd9e",
+                  "title": "Manipulasi Status buat Check-in atau Double Check-in",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Terjadi race condition saat tiket yang sama dipindai bersamaan di dua pintu masuk paralel, sehingga satu tiket berhasil digunakan lebih dari satu kali.",
+                  "mitigation": "Menerapkan database transaction dengan penguncian baris row-level locking pada Backend Tiket saat memperbarui status check-in.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": "8"
+                },
+                {
+                  "id": "6c55d650-7a75-4eac-bbae-d8f762a77ad2",
+                  "title": "Penyangkalan Aktivitas Pemindaian Tiket oleh Petugas",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Petugas pintu menyangkal telah meloloskan tiket bermasalah karena sistem tidak mencatat identitas petugas pada setiap transaksi pemindaian.",
+                  "mitigation": "Menyimpan audit log atau immutable yang merekam ID petugas, waktu timestamp, nomor pintu, dan ID tiket pada setiap proses validasi.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": "5"
                 }
               ],
               "threatFrequency": {
                 "spoofing": 0,
-                "tampering": 2,
-                "repudiation": 0,
+                "tampering": 3,
+                "repudiation": 1,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
@@ -972,17 +1042,17 @@
               "privilegeLevel": "",
               "threats": [
                 {
-                  "id": "0387efdf-07c8-408c-a80a-7ba0bbcb12ed",
-                  "title": "Akses Tidak Sah ke Endpoint Dashboard Admin",
+                  "id": "8855242e-fff8-4d8e-bc91-822e4d6c93b0",
+                  "title": "Akses Tidak Sah ke Dashboard Admin Acara",
                   "status": "Open",
                   "severity": "High",
                   "type": "Elevation of privilege",
-                  "description": "Peserta ato petugas bisa mengeksploitasi endpoint API dashboard untuk melihat seluruh rekap data peserta atau mengubah status tiket secara massal.",
-                  "mitigation": "Menerapkan RBAC yang ketat pada sisi server, hanya akun dengan peran Admin yang bisa akses fungsi dashboard",
+                  "description": "Peserta biasa atau petugas pintu mengeksploitasi endpoint API dashboard untuk melihat seluruh rekap data kehadiran atau memodifikasi data acara.",
+                  "mitigation": "Menerapkan Role-Based Access Control / RBAC yang ketat di sisi server agar hanya akun Admin Acara yang dapat mengakses fungsi Monitoring Data.",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 11,
-                  "score": ""
+                  "number": 19,
+                  "score": "8"
                 }
               ],
               "threatFrequency": {
@@ -991,7 +1061,7 @@
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
-                "elevationOfPrivilege": 2
+                "elevationOfPrivilege": 1
               }
             }
           },
@@ -1147,7 +1217,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1168,15 +1239,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "65ac6165-bcac-4fe9-b397-b76e1a50a6c3",
+                  "title": "Penyadapan Payload QR Code dan Token Sesi Petugas",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Data hasil pemindaian QR tiket dan token sesi autentikasi petugas disadap saat dikirim melalui jaringan publik dari Aplikasi Pemindai menuju Backend Tiket.",
+                  "mitigation": "Menerapkan enkripsi komunikasi end-to-end menggunakan protokol HTTPS/TLS pada seluruh jalur pengiriman data dari APK Pemindai ke server.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": "8"
+                }
+              ],
               "trustBoundaryIds": [
                 "1981b4e2-a9a3-420c-8953-ec90ec9fdc3a"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Scan_QR"
@@ -1192,12 +1282,12 @@
             },
             "vertices": [
               {
-                "x": 250,
-                "y": 280
+                "x": 240,
+                "y": 270
               },
               {
                 "x": 300,
-                "y": 280
+                "y": 270
               }
             ]
           },
@@ -1443,11 +1533,11 @@
               "threats": [
                 {
                   "id": "b03d7f0e-0c39-40e9-a737-040a319b8d12",
-                  "title": "Kebocoran data kehadiran akibat cache browser atau koneksi tidak aman",
+                  "title": "Kebocoran data kehadiran melalui cache browser atau jalur yang tidak terenkripsi",
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Information disclosure",
-                  "description": "Data peserta dan status kehadiran tersimpan di cache browser atau dikirim tanpa perlindungan yang cukup, sehingga bisa diakses oleh pihak yang tidak berwenang.\n\n\n",
+                  "description": "Data daftar status tiket dan identitas peserta yang ditampilkan pada dashboard web tersimpan secara lokal pada cache browser perangkat bersama atau dikirim tanpa perlindungan header keamanan yang memadai sehingga seluruh data peserta dan status kehadiran acara dapat terbaca oleh pihak yang tidak berwenang",
                   "mitigation": "Menggunakan koneksi HTTPS untuk dashboard admin, menambahkan HTTP response header cache control yaitu no-store dan pragma yaitu no cache, dan juga menerapkan auto logout ketika sesi admin tidak aktif",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1460,7 +1550,7 @@
               ],
               "threatFrequency": {
                 "tampering": 0,
-                "informationDisclosure": 3,
+                "informationDisclosure": 2,
                 "denialOfService": 0
               }
             },
@@ -1478,16 +1568,8 @@
             },
             "vertices": [
               {
-                "x": 1090,
+                "x": 1100,
                 "y": 260
-              },
-              {
-                "x": 1130,
-                "y": 260
-              },
-              {
-                "x": 1150,
-                "y": 240
               }
             ]
           },
@@ -1644,8 +1726,8 @@
             },
             "vertices": [
               {
-                "x": 670,
-                "y": 315
+                "x": 660,
+                "y": 305
               }
             ]
           },
@@ -1711,6 +1793,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "VRA",
-    "threatTop": 11
+    "threatTop": 19
   }
 }
