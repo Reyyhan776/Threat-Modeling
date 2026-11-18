@@ -1,0 +1,42 @@
+{
+  "version": "2.6.2",
+  "release_version": "v_1",
+  "released_at": "2026-11-18",
+  "summary": {
+    "title": "Threat Model - Sistem E-Ticket Kasus C",
+    "owner": "Raihan",
+    "description": "Model ancaman menggunakan STRIDE untuk sistem e-ticket dan validasi tiket acara",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "Arya Panji"
+      },
+      {
+        "name": "Raihan Abdur"
+      },
+      {
+        "name": "Salman Rifa'i"
+      },
+      {
+        "name": "Febrian Putra"
+      }
+    ],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "STRIDE Kasus C",
+        "diagramType": "STRIDE",
+        "placeholder": "Deskripsi diagram STRIDE baru",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "cells": [],
+        "description": "Model ancaman menggunakan STRIDE untuk sistem e-ticket dan validasi tiket acara"
+      }
+    ],
+    "diagramTop": 1,
+    "reviewer": "VRA",
+    "threatTop": 0
+  }
+}
