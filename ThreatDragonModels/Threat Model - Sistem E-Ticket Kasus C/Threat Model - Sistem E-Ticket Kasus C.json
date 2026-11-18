@@ -4,7 +4,7 @@
   "released_at": "2026-11-18",
   "summary": {
     "title": "Threat Model - Sistem E-Ticket Kasus C",
-    "owner": "Raihansya",
+    "owner": "Raihansya Abid",
     "description": "Model ancaman menggunakan STRIDE untuk sistem e-ticket dan validasi tiket acara",
     "id": 0
   },
