@@ -681,8 +681,8 @@
                 "text": "Scan & Validasi\nTiket"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -779,12 +779,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "bb497895-3ceb-4651-917b-769e0738466f",
+                  "title": "Eksploitasi Pemindaian Paralel (Race Condition Check-In)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Terjadinya race condition dengan kondisi ketika dua orang memindai salinan QR Code tiket yang sama secara paralel di dua pintu masuk berbeda pada detik yang sama sebelum database sempat memperbarui status tiket.",
+                  "mitigation": "Terapkan mekanisme penguncian transaksi database (atomic update atau row-level locking) pada baris ID tiket saat proses pembaruan status check-in berlangsung",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1555,6 +1577,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "VRA",
-    "threatTop": 0
+    "threatTop": 1
   }
 }
