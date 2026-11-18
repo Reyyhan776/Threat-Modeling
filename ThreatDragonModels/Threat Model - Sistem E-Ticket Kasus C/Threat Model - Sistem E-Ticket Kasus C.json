@@ -70,6 +70,13 @@
                 "38a2f7ec-1a6c-4f9c-9e0c-355e794d8626",
                 "c4422e7b-4b29-45f8-bd89-6a1bc14095a3"
               ]
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -867,8 +874,8 @@
                 "text": "Monitoring\nData"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -965,12 +972,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "0387efdf-07c8-408c-a80a-7ba0bbcb12ed",
+                  "title": "Ancaman STRIDE baru",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Peserta ato petugas bisa mengeksploitasi endpoint API dashboard untuk melihat seluruh rekap data peserta atau mengubah status tiket secara massal.",
+                  "mitigation": "Menerapkan RBAC yang ketat pada sisi server, hanya akun dengan peran Admin yang bisa akses fungsi dashboard",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -1421,11 +1450,11 @@
               "threats": [
                 {
                   "id": "b03d7f0e-0c39-40e9-a737-040a319b8d12",
-                  "title": "Kebocoran data kehadiran melalui cache browser atau jalur yang tidak terenkripsi",
+                  "title": "Kebocoran data kehadiran akibat cache browser atau koneksi tidak aman",
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Information disclosure",
-                  "description": "Data daftar status tiket dan identitas peserta yang ditampilkan pada dashboard web tersimpan secara lokal pada cache browser perangkat bersama atau dikirim tanpa perlindungan header keamanan yang memadai sehingga seluruh data peserta dan status kehadiran acara dapat terbaca oleh pihak yang tidak berwenang",
+                  "description": "Data peserta dan status kehadiran tersimpan di cache browser atau dikirim tanpa perlindungan yang cukup, sehingga bisa diakses oleh pihak yang tidak berwenang.\n\n\n",
                   "mitigation": "Menggunakan koneksi HTTPS untuk dashboard admin, menambahkan HTTP response header cache control yaitu no-store dan pragma yaitu no cache, dan juga menerapkan auto logout ketika sesi admin tidak aktif",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1438,7 +1467,7 @@
               ],
               "threatFrequency": {
                 "tampering": 0,
-                "informationDisclosure": 2,
+                "informationDisclosure": 3,
                 "denialOfService": 0
               }
             },
@@ -1456,8 +1485,16 @@
             },
             "vertices": [
               {
-                "x": 1100,
+                "x": 1090,
                 "y": 260
+              },
+              {
+                "x": 1120,
+                "y": 260
+              },
+              {
+                "x": 1150,
+                "y": 240
               }
             ]
           },
@@ -1681,6 +1718,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "VRA",
-    "threatTop": 10
+    "threatTop": 11
   }
 }
