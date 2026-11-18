@@ -322,13 +322,6 @@
                 "spoofing": 1,
                 "repudiation": 0
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -1139,12 +1132,6 @@
               "cell": "9f48194f-79c1-4818-bb67-f904db01b788",
               "port": "8e658301-0344-4f92-a432-1f6d656ff654"
             },
-            "vertices": [
-              {
-                "x": 270,
-                "y": 110
-              }
-            ],
             "tools": {
               "items": [
                 "boundary",
@@ -1364,7 +1351,13 @@
                 "target-arrowhead"
               ],
               "name": null
-            }
+            },
+            "vertices": [
+              {
+                "x": 270,
+                "y": 110
+              }
+            ]
           },
           {
             "shape": "flow",
