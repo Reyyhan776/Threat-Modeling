@@ -70,13 +70,6 @@
                 "38a2f7ec-1a6c-4f9c-9e0c-355e794d8626",
                 "c4422e7b-4b29-45f8-bd89-6a1bc14095a3"
               ]
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -720,16 +713,16 @@
           },
           {
             "position": {
-              "x": 345,
-              "y": 255
+              "x": 328,
+              "y": 245
             },
             "size": {
-              "width": 130,
-              "height": 100
+              "width": 150,
+              "height": 120
             },
             "attrs": {
               "text": {
-                "text": "Scan & Validasi\nTiket"
+                "text": "Login & Scan QR\nSerta Validasi\nTiket"
               },
               "body": {
                 "stroke": "red",
@@ -825,7 +818,7 @@
             "id": "38a2f7ec-1a6c-4f9c-9e0c-355e794d8626",
             "data": {
               "type": "tm.Process",
-              "name": "Scan & Validasi\nTiket",
+              "name": "Login & Scan QR\nSerta Validasi\nTiket",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -980,7 +973,7 @@
               "threats": [
                 {
                   "id": "0387efdf-07c8-408c-a80a-7ba0bbcb12ed",
-                  "title": "Ancaman STRIDE baru",
+                  "title": "Akses Tidak Sah ke Endpoint Dashboard Admin",
                   "status": "Open",
                   "severity": "High",
                   "type": "Elevation of privilege",
@@ -998,7 +991,7 @@
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
-                "elevationOfPrivilege": 1
+                "elevationOfPrivilege": 2
               }
             }
           },
@@ -1199,12 +1192,12 @@
             },
             "vertices": [
               {
-                "x": 240,
-                "y": 270
+                "x": 250,
+                "y": 280
               },
               {
-                "x": 290,
-                "y": 270
+                "x": 300,
+                "y": 280
               }
             ]
           },
@@ -1489,7 +1482,7 @@
                 "y": 260
               },
               {
-                "x": 1120,
+                "x": 1130,
                 "y": 260
               },
               {
@@ -1651,8 +1644,8 @@
             },
             "vertices": [
               {
-                "x": 660,
-                "y": 305
+                "x": 670,
+                "y": 315
               }
             ]
           },
