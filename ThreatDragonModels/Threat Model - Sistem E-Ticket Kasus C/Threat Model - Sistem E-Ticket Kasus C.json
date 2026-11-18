@@ -34,12 +34,12 @@
         "cells": [
           {
             "position": {
-              "x": 269.99999999999955,
-              "y": 30.00000000000091
+              "x": 296.25,
+              "y": 1460.0000000000005
             },
             "size": {
               "width": 700,
-              "height": 320
+              "height": 360
             },
             "attrs": {
               "label": {
@@ -57,18 +57,13 @@
               "isTrustBoundary": true,
               "hasOpenThreats": false,
               "crossingFlows": [],
-              "containedElements": [
-                "c2561b5d-3577-4759-8888-0fde83294b8a",
-                "9f48194f-79c1-4818-bb67-f904db01b788",
-                "38a2f7ec-1a6c-4f9c-9e0c-355e794d8626",
-                "c4422e7b-4b29-45f8-bd89-6a1bc14095a3"
-              ]
+              "containedElements": []
             }
           },
           {
             "position": {
-              "x": 70,
-              "y": 95
+              "x": 80,
+              "y": 110
             },
             "size": {
               "width": 112.5,
@@ -184,8 +179,8 @@
           },
           {
             "position": {
-              "x": 572.4999999999995,
-              "y": 380.0000000000009
+              "x": 590,
+              "y": 470
             },
             "size": {
               "width": 112.5,
@@ -297,13 +292,6 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -425,8 +413,8 @@
           },
           {
             "position": {
-              "x": 559.9999999999995,
-              "y": 145
+              "x": 606.25,
+              "y": 110
             },
             "size": {
               "width": 120,
@@ -549,7 +537,7 @@
           },
           {
             "position": {
-              "x": 340,
+              "x": 350,
               "y": 95
             },
             "size": {
@@ -669,8 +657,8 @@
           },
           {
             "position": {
-              "x": 554.9999999999995,
-              "y": 230
+              "x": 559.9999999999998,
+              "y": 265
             },
             "size": {
               "width": 130,
@@ -906,6 +894,104 @@
               "privilegeLevel": "",
               "threats": []
             }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Isi form regist",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Isi form regist"
+            ],
+            "id": "b343533a-dde5-49fa-b051-a7382b99275a",
+            "source": {
+              "x": 193,
+              "y": 139
+            },
+            "target": {
+              "cell": "9f48194f-79c1-4818-bb67-f904db01b788",
+              "port": "8e658301-0344-4f92-a432-1f6d656ff654"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "2ec9a4da-ec81-44ee-8ba0-a63aa27d9cd2",
+            "source": {
+              "x": 470,
+              "y": 150
+            },
+            "target": {
+              "x": 550,
+              "y": 240
+            },
+            "vertices": [
+              {
+                "x": 530,
+                "y": 150
+              }
+            ]
           }
         ],
         "description": "Model ancaman menggunakan STRIDE untuk sistem e-ticket dan validasi tiket acara"
