@@ -968,7 +968,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -989,15 +990,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "63717ad4-5dc1-47eb-b87b-871a893a4b50",
+                  "title": "Manipulasi Payload dan Injeksi Input Formulir Registrasi",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Pengguna memodifikasi parameter permintaan HTTP atau menyuntikkan karakter berbahaya (SQL Injection) saat mengirimkan data formulir registrasi melalui portal web.",
+                  "mitigation": "Terapkan validasi dan sanitasi input secara ketat di sisi server (Regist Tiket) serta gunakan parameterized queries (Prepared Statements) saat menyimpan data ke database",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "1981b4e2-a9a3-420c-8953-ec90ec9fdc3a"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Isi_form_regist"
@@ -1016,7 +1036,17 @@
                 "x": 270,
                 "y": 110
               }
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "flow",
@@ -1632,6 +1662,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "VRA",
-    "threatTop": 5
+    "threatTop": 6
   }
 }
