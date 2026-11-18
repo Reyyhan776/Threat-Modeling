@@ -1036,17 +1036,7 @@
                 "x": 270,
                 "y": 110
               }
-            ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
+            ]
           },
           {
             "shape": "flow",
@@ -1662,6 +1652,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "VRA",
-    "threatTop": 6
+    "threatTop": 7
   }
 }
