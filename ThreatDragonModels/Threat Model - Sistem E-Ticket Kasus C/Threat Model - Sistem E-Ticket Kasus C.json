@@ -927,62 +927,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Simpan_data_tiket",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Simpan_data_tiket"
-            ],
-            "id": "5b78e351-7f5a-4952-8bab-81899953c184",
-            "source": {
-              "cell": "9f48194f-79c1-4818-bb67-f904db01b788",
-              "port": "7d24af8e-2444-4d9f-a8be-86f38cc93a7f"
-            },
-            "target": {
-              "cell": "c2561b5d-3577-4759-8888-0fde83294b8a",
-              "port": "1977cc97-e604-4622-9d4f-cd09d7685581"
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "Isi_form_regist",
               "description": "",
               "outOfScope": false,
@@ -1037,7 +981,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "QR/ID Tiket",
+              "name": "QR_Tiket",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1053,7 +997,7 @@
               ]
             },
             "labels": [
-              "QR/ID Tiket"
+              "QR_Tiket"
             ],
             "id": "fd9e1d48-4414-4cfe-bed3-8e1d411f24a6",
             "source": {
@@ -1425,7 +1369,7 @@
               ]
             },
             "labels": [
-              "Tampilan_dashboard"
+              "Tampilan_dashboar"
             ],
             "id": "3041bd66-7b27-4ba0-b5b9-bb7cd3c4811d",
             "source": {
@@ -1494,6 +1438,114 @@
               {
                 "x": 1100,
                 "y": 170
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Simpan_data_tiket",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Simpan_data_tiket"
+            ],
+            "id": "5b78e351-7f5a-4952-8bab-81899953c184",
+            "source": {
+              "cell": "9f48194f-79c1-4818-bb67-f904db01b788",
+              "port": "7d24af8e-2444-4d9f-a8be-86f38cc93a7f"
+            },
+            "target": {
+              "cell": "c2561b5d-3577-4759-8888-0fde83294b8a",
+              "port": "1977cc97-e604-4622-9d4f-cd09d7685581"
+            },
+            "vertices": [
+              {
+                "x": 510,
+                "y": 185
+              },
+              {
+                "x": 580,
+                "y": 185
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Terbitkan_QR_tiket",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Terbitkan_QR_tiket"
+            ],
+            "id": "fc88278a-a2d6-430c-a170-51859cff1c52",
+            "source": {
+              "cell": "c2561b5d-3577-4759-8888-0fde83294b8a",
+              "port": "bfffd2b9-6ba1-4e52-a22d-9c963de30a22"
+            },
+            "target": {
+              "cell": "9f48194f-79c1-4818-bb67-f904db01b788",
+              "port": "7d24af8e-2444-4d9f-a8be-86f38cc93a7f"
+            },
+            "vertices": [
+              {
+                "x": 660,
+                "y": 140
               }
             ]
           }
