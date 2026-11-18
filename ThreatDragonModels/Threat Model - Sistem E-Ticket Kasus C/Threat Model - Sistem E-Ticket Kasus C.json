@@ -4,7 +4,7 @@
   "released_at": "2026-11-18",
   "summary": {
     "title": "Threat Model - Sistem E-Ticket Kasus C",
-    "owner": "Raihansya",
+    "owner": "Raihan",
     "description": "Model ancaman menggunakan STRIDE untuk sistem e-ticket dan validasi tiket acara",
     "id": 0
   },
@@ -553,8 +553,8 @@
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Repudiation",
-                  "description": "Petugas pintu menyangkal telah meloloskan tiket bermasalah, atau peserta mengklaim belum pernah melakukan check-in padahal status tiket di sistem sudah terpakai.\nDampak: Penyelenggara tidak memiliki bukti audit yang kuat untuk melacak waktu pemindaian, lokasi pintu masuk, dan akun petugas yang bertugas",
-                  "mitigation": "Sediakan tabel audit log bersifat append-only (tidak dapat diubah atau dihapus) pada database untuk mencatat setiap transaksi check-in beserta timestamp, ID tiket, ID petugas, dan ID perangkat pemindai",
+                  "description": "Petugas pintu membiarkan tiket yang bermasalah tetap bisa masuk, peserta mengklaim belum pernah melakukan check-in padahal status tiket di sistem sudah terpakai.",
+                  "mitigation": "Menyediakan tabel audit log yang tidak dapat diubah atau dihapus pada database sehingga dapat mencatat setiap aktivitas check-in dan timestamp, ID tiket, ID petugas, dan ID perangkat pemindai",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 2,
@@ -563,17 +563,10 @@
               ],
               "threatFrequency": {
                 "tampering": 0,
-                "repudiation": 1,
+                "repudiation": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -696,12 +689,12 @@
               "threats": [
                 {
                   "id": "1a9aff49-6dcc-4e10-8fa7-d6420e2de087",
-                  "title": "Serangan Bot Registrasi Massal Menggunakan Identitas Palsu",
+                  "title": "Registrasi secara massal menggunakan bot",
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Spoofing",
-                  "description": "Pihak eksternal menjalankan skrip otomatis (bot) untuk mengisi formulir registrasi berulang kali menggunakan identitas fiktif tanpa verifikasi keaslian pendaftar.",
-                  "mitigation": "Pasang mekanisme CAPTCHA pada formulir registrasi portal web, batasi jumlah pendaftaran per alamat IP, dan terapkan validasi format identitas peserta di sisi backend.",
+                  "description": "Penyerangan menggunakan bot dengan registrasi berulang kali menggunakan identitas palsu tanpa adanya verifikasi",
+                  "mitigation": "Penerapan mekanisme CAPTCHA ketika registrasi, pembatasan jumlah pendaftaran per alamat IP, validasi format identitas peserta di backend",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 9,
@@ -709,7 +702,7 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
+                "spoofing": 2,
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
@@ -838,37 +831,24 @@
               "threats": [
                 {
                   "id": "bb497895-3ceb-4651-917b-769e0738466f",
-                  "title": "Eksploitasi Pemindaian Paralel (Race Condition Check-In)",
+                  "title": "Pemanfaatan pemindaian pada waktu yang sama",
                   "status": "Open",
                   "severity": "High",
                   "type": "Tampering",
-                  "description": "Terjadinya race condition dengan kondisi ketika dua orang memindai salinan QR Code tiket yang sama secara paralel di dua pintu masuk berbeda pada detik yang sama sebelum database sempat memperbarui status tiket.",
-                  "mitigation": "Terapkan mekanisme penguncian transaksi database (atomic update atau row-level locking) pada baris ID tiket saat proses pembaruan status check-in berlangsung",
+                  "description": "Terjadinya race condition dengan kondisi ketika dua orang memindai kode QR yang sama di dua pintu masuk yang berbeda dan pada waktu yang sama ketika database belum memperbarui status tiket.",
+                  "mitigation": "Menerapkan penguncian transaksi database menggunakan atomic update atau row-level locking pada ID tiket saat proses pembaruan status check-in berlangsung",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 1,
-                  "score": ""
-                },
-                {
-                  "id": "dbd44c72-e800-4151-b0c8-07484e1f8581",
-                  "title": "Serangan Banjir Permintaan (HTTP Flood) Saat Antrean Masuk",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "Denial of service",
-                  "description": "Penyerang mengirimkan ribuan permintaan palsu secara bersamaan ke server backend tepat pada hari acara ketika proses validasi tiket sedang berlangsung.",
-                  "mitigation": "Terapkan rate limiting pada API Gateway, pasang Web Application Firewall (WAF), dan pisahkan kapasitas server antara portal registrasi publik dengan endpoint API khusus aplikasi pemindai petugas",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 3,
                   "score": ""
                 }
               ],
               "threatFrequency": {
                 "spoofing": 0,
-                "tampering": 1,
+                "tampering": 2,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 1,
+                "denialOfService": 0,
                 "elevationOfPrivilege": 0
               }
             }
@@ -1027,12 +1007,12 @@
               "threats": [
                 {
                   "id": "63717ad4-5dc1-47eb-b87b-871a893a4b50",
-                  "title": "Manipulasi Payload dan Injeksi Input Formulir Registrasi",
+                  "title": "Memanipulasi payload dan injeksi input formulir registrasi",
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Tampering",
-                  "description": "Pengguna memodifikasi parameter permintaan HTTP atau menyuntikkan karakter berbahaya (SQL Injection) saat mengirimkan data formulir registrasi melalui portal web.",
-                  "mitigation": "Terapkan validasi dan sanitasi input secara ketat di sisi server (Regist Tiket) serta gunakan parameterized queries (Prepared Statements) saat menyimpan data ke database",
+                  "description": "Pengguna memodifikasi parameter request HTTP atau menyuntikkan karakter berbahaya seperti SQL Injection saat mengirimkan data formulir registrasi melalui web",
+                  "mitigation": "Menerapkan validasi dan sanitasi input secara ketat pada registrasi tiket, kemudian gunakan parameterized queries seperti prepared statements saat menyimpan data ke database",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 6,
@@ -1043,7 +1023,7 @@
                 "1981b4e2-a9a3-420c-8953-ec90ec9fdc3a"
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
@@ -1101,12 +1081,12 @@
               "threats": [
                 {
                   "id": "a2c8e4c7-897a-4ead-bd93-a6ed4eef8cca",
-                  "title": "Kebocoran Data Peserta dan QR Tiket Melalui Celah IDOR",
+                  "title": "Kebocoran data peserta dan kode QR tiket melalui celah IDOR",
                   "status": "Open",
                   "severity": "High",
                   "type": "Information disclosure",
-                  "description": "Penyerang mengeksploitasi celah Insecure Direct Object Reference (IDOR) dengan mengubah parameter ID tiket pada URL portal web untuk mengakses halaman tiket milik peserta lain.",
-                  "mitigation": "Terapkan pengecekan otorisasi kepemilikan sesi di backend sebelum menampilkan data tiket, gunakan token URL acak yang tidak berurutan, dan pastikan seluruh jalur transmisi terenkripsi menggunakan HTTPS.",
+                  "description": "Penyerang mengeksploitasi celah IDOR dengan mengubah parameter ID tiket pada URL portal web sehingga dapat mengakses halaman tiket peserta lain",
+                  "mitigation": "Menerapkan pengecekan otorisasi kepemilikan sesi di backend sebelum menampilkan data tiket, menggunakan token URL acak yang tidak berurutan, memastikan seluruh jalur transmisi terenkripsi menggunakan HTTPS",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 5,
@@ -1118,7 +1098,7 @@
               ],
               "threatFrequency": {
                 "tampering": 0,
-                "informationDisclosure": 1,
+                "informationDisclosure": 2,
                 "denialOfService": 0
               }
             },
@@ -1411,7 +1391,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1432,15 +1413,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "b03d7f0e-0c39-40e9-a737-040a319b8d12",
+                  "title": "Kebocoran data kehadiran melalui cache browser atau jalur yang tidak terenkripsi",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Data daftar status tiket dan identitas peserta yang ditampilkan pada dashboard web tersimpan secara lokal pada cache browser perangkat bersama atau dikirim tanpa perlindungan header keamanan yang memadai sehingga seluruh data peserta dan status kehadiran acara dapat terbaca oleh pihak yang tidak berwenang",
+                  "mitigation": "Menggunakan koneksi HTTPS untuk dashboard admin, menambahkan HTTP response header cache control yaitu no-store dan pragma yaitu no cache, dan juga menerapkan auto logout ketika sesi admin tidak aktif",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "1981b4e2-a9a3-420c-8953-ec90ec9fdc3a"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Tampilan_dashboard"
@@ -1681,6 +1681,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "VRA",
-    "threatTop": 9
+    "threatTop": 10
   }
 }
