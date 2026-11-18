@@ -59,7 +59,6 @@
               "crossingFlows": [
                 "b343533a-dde5-49fa-b051-a7382b99275a",
                 "fd9e1d48-4414-4cfe-bed3-8e1d411f24a6",
-                "012548bb-3363-4871-b010-36aa12d7ef58",
                 "85254269-6437-4ed6-8e59-3d5a0d8f5ab2"
               ],
               "containedElements": [
@@ -1090,9 +1089,7 @@
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
-              "trustBoundaryIds": [
-                "1981b4e2-a9a3-420c-8953-ec90ec9fdc3a"
-              ]
+              "trustBoundaryIds": []
             },
             "labels": [
               "Data Flow"
@@ -1103,8 +1100,8 @@
               "port": "02659bc7-005d-48ce-91f9-429ab40b9bca"
             },
             "target": {
-              "cell": "38a2f7ec-1a6c-4f9c-9e0c-355e794d8626",
-              "port": "8e658301-0344-4f92-a432-1f6d656ff654"
+              "x": 280,
+              "y": 395
             },
             "vertices": [
               {
