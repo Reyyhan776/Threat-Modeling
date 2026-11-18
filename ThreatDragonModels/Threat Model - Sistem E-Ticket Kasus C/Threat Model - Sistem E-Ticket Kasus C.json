@@ -34,8 +34,8 @@
         "cells": [
           {
             "position": {
-              "x": 296.25,
-              "y": 1460.0000000000005
+              "x": 328,
+              "y": 35
             },
             "size": {
               "width": 700,
@@ -56,8 +56,16 @@
               "description": "",
               "isTrustBoundary": true,
               "hasOpenThreats": false,
-              "crossingFlows": [],
-              "containedElements": []
+              "crossingFlows": [
+                "b343533a-dde5-49fa-b051-a7382b99275a",
+                "fd9e1d48-4414-4cfe-bed3-8e1d411f24a6"
+              ],
+              "containedElements": [
+                "c2561b5d-3577-4759-8888-0fde83294b8a",
+                "9f48194f-79c1-4818-bb67-f904db01b788",
+                "38a2f7ec-1a6c-4f9c-9e0c-355e794d8626",
+                "c4422e7b-4b29-45f8-bd89-6a1bc14095a3"
+              ]
             }
           },
           {
@@ -972,7 +980,9 @@
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
-              "trustBoundaryIds": []
+              "trustBoundaryIds": [
+                "1981b4e2-a9a3-420c-8953-ec90ec9fdc3a"
+              ]
             },
             "labels": [
               "Isi_form_regist"
@@ -1024,7 +1034,9 @@
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
-              "trustBoundaryIds": []
+              "trustBoundaryIds": [
+                "1981b4e2-a9a3-420c-8953-ec90ec9fdc3a"
+              ]
             },
             "labels": [
               "QR/ID Tiket"
